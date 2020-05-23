@@ -9,14 +9,9 @@ node('jfrognew'){
 	sh label: '', script: 'mvn clean package'
     }
 
-    stage('postbuild'){
-	junit '**/target/surefire-reports/*.xml'
-	archiveArtifacts 'target/*.jar'
-    }
-    
-   stage('SonarScan') {
+      stage('Sonar') {
         withSonarQubeEnv('SONAR-7.1') {
              sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+        }
     }
-
 }
