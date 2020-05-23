@@ -2,7 +2,7 @@
 
 node('jfrognew'){
     stage('scm'){
-	git 'https://github.com/ametgud4u/Devops.git'
+	git 'https://github.com/ametgud4u/game-of-life.git'
     }
 
     stage('build'){
