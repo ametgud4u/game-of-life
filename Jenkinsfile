@@ -8,10 +8,5 @@ node('jfrognew'){
     stage('build'){
 	sh label: '', script: 'mvn clean package'
     }
-
-      stage('Sonar') {
-        withSonarQubeEnv('SONAR-7.1') {
-             sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
-        }
-    }
+   }
 }
