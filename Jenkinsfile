@@ -7,6 +7,5 @@ node('jfrognew'){
 
     stage('build'){
 	sh label: '', script: 'mvn clean package'
-    }
    }
 }
