@@ -6,6 +6,7 @@ node('jfrognew'){
     }
 
     stage('build'){
+	   input 'continue to next step?'
 	sh label: '', script: 'mvn clean package'
 	    
     stage('SonarQube analysis') {
