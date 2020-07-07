@@ -4,7 +4,7 @@ node('master'){
     }
 
     stage('build'){
-	   #input 'continue to next step?'
+	   input 'continue to next step?'
 	sh label: '', script: 'mvn clean package'
     }
     
