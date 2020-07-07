@@ -8,7 +8,7 @@ node('master'){
     }
 
     stage('postbuild'){
-	junit '**/target/surefire-reports/*.xml'
+	junit '**/pipeline-gameoflife/target/surefire/*.xml'
 	archiveArtifacts 'target/*.jar'
     }
 
