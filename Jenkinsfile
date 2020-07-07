@@ -1,10 +1,10 @@
-node('jfrognew'){
+node('master'){
     stage('scm'){
 	git 'https://github.com/ametgud4u/game-of-life.git'
     }
 
     stage('build'){
-	   input 'continue to next step?'
+	   #input 'continue to next step?'
 	sh label: '', script: 'mvn clean package'
     }
     
