@@ -12,12 +12,11 @@ node('master'){
         sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
     }
 
-      stage("Quality Gate"){
-          timeout(time: 15, unit: 'MINUTES') {
-              def qg = waitForQualityGate()
-              if (qg.status != 'OK') {
-                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
-   }
+    stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+    }
        stage('postbuild'){
        junit '**/pipeline-gameoflife/target/surefire/*.xml'
        archiveArtifacts 'target/*.jar'
