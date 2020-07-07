@@ -14,7 +14,7 @@ node('master'){
 
     stage("Quality Gate") {
             steps {
-              timeout(time: 1, unit: 'HOURS') {
+              timeout(time: 30, unit: 'MINUTES') {
                 waitForQualityGate abortPipeline: true
     }
        stage('postbuild'){
