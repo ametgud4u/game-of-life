@@ -19,7 +19,7 @@ node('node1'){
             }
 	
     stage('postbuild'){
-        junit '**/apps/workspace/GOL/gameoflife-build/target/surefire-reports/*.xml'
+        junit '/apps/workspace/GOL/gameoflife-build/target/surefire-reports/*.xml'
         archiveArtifacts 'target/*.jar'
     }
   }
