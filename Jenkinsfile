@@ -1,4 +1,4 @@
-node('node1'){
+node('$hostname'){
     stage('scm'){
 	git 'https://github.com/ametgud4u/game-of-life.git'
     }
