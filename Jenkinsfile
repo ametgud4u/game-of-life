@@ -19,7 +19,7 @@ node('node1'){
             }
 	
     stage('postbuild'){
-        junit '**/**/target/surefire/*.xml'
+        junit '**/target/surefire/*.xml'
         archiveArtifacts 'target/*.jar'
     }
   }
