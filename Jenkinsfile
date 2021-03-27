@@ -8,7 +8,11 @@ node('master'){
 	sh label: '', script: 'mvn clean package'
     }
     
-     stage('postbuild'){
+    stage("Quality gate") {
+           waitForQualityGate abortPipeline: true
+            }
+	
+    stage('postbuild'){
         junit '**/pipeline-gameoflife/target/surefire/*.xml'
         archiveArtifacts 'target/*.jar'
 	    
